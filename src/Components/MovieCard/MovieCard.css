@@ -1,0 +1,9 @@
+.movieCard{
+    margin:5%;
+    padding:2%;
+    color:rgba(245, 245, 245, 0.829)
+    }
+    .movieCard:hover {
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1), -2px -2px 10px rgba(0, 0, 0, 0.1),
+          18px 18px 10px rgba(0, 0, 0, 0.05), -18px -18px 10px rgba(0, 0, 0, 0.05);
+      }
