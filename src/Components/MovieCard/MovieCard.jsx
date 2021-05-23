@@ -12,8 +12,8 @@ function MovieCard({ newMovie }) {
                 style={{
                     width: "18rem",
                     borderRadius: "10px",
-                    border: "2px solid black",
-                    background:"black"
+                    border: "2px solid red",
+                    background:"red"
                 }}
             >
                 <Card.Img

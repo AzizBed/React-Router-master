@@ -11,10 +11,11 @@
     margin-left: 50px;
 }
 .navMenu{
-    background-color: black;
+    background-color: rgb(39, 34, 34);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 5;
     margin-bottom: 50px;
+    
 }
