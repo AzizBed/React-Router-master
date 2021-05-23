@@ -32,14 +32,14 @@ function AddMovie({newMovie,  setNewMovie, newMovieData, setNewMovieData }) {
 
     return (
         <>
-            <Button variant="success" onClick={handleShow}>
+            <Button variant="secondary" onClick={handleShow}>
                 <img
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: "pointer"}}
                     src="https://icons.iconarchive.com/icons/custom-icon-design/mono-general-1/512/add-icon.png"
                     width="250px"
                     height="300px"
                     alt="Add movie"
-                />
+                /> <p>Add a new movie</p>
             </Button>
 
             <Modal show={show} onHide={handleClose} animation={false}>

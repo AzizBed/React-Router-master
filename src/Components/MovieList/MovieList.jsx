@@ -18,7 +18,7 @@ function MovieList({
         Rate: 0,
     })
     
-    return (console.log(newMovie),
+    return (
         <div className="movielist">
             {newMovie.filter(
                 (el) =>
