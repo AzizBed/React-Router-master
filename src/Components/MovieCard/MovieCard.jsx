@@ -13,7 +13,7 @@ function MovieCard({ newMovie }) {
                     width: "18rem",
                     borderRadius: "10px",
                     border: "2px solid red",
-                    background:"red"
+                    background:"rgb(194, 4, 4)"
                 }}
             >
                 <Card.Img
