@@ -15,7 +15,7 @@ function MovieList({
         Title: "",
         Description: "",
         PosterUrl: "",
-        Rate: 0,
+        Rating: 0,
     })
     
     return (

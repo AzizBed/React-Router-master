@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FormControl, Modal, Button, Form } from "react-bootstrap";
 import "./AddMovie.css";
 
-function AddMovie({newMovie,  setNewMovie, newMovieData, setNewMovieData }) {
+function AddMovie({ newMovie, setNewMovie, newMovieData, setNewMovieData }) {
     const [show, setShow] = useState(false);
 
     const handleSave = () => {
@@ -10,10 +10,10 @@ function AddMovie({newMovie,  setNewMovie, newMovieData, setNewMovieData }) {
             newMovieData.Title !== "" &&
             newMovieData.Description !== "" &&
             newMovieData.PosterUrl !== "" &&
-            newMovieData.Rating <= 5
+            newMovieData.Rating !== 0
         ) {
             setNewMovie([...newMovie, newMovieData]);
-            
+
             setShow(false);
         } else {
             alert("All fields are mandatory");
@@ -22,11 +22,17 @@ function AddMovie({newMovie,  setNewMovie, newMovieData, setNewMovieData }) {
             Title: "",
             Description: "",
             PosterUrl: "",
-            Rate: 0,
-        })
+            Rating: 0,
+        });
     };
     const handleClose = () => {
         setShow(false);
+        setNewMovieData({
+            Title: "",
+            Description: "",
+            PosterUrl: "",
+            Rating: 0,
+        });
     };
     const handleShow = () => setShow(true);
 
@@ -34,12 +40,13 @@ function AddMovie({newMovie,  setNewMovie, newMovieData, setNewMovieData }) {
         <>
             <Button variant="secondary" onClick={handleShow}>
                 <img
-                    style={{ cursor: "pointer"}}
+                    style={{ cursor: "pointer" }}
                     src="https://icons.iconarchive.com/icons/custom-icon-design/mono-general-1/512/add-icon.png"
                     width="250px"
                     height="300px"
                     alt="Add movie"
-                /> <p>Add a new movie</p>
+                />{" "}
+                <p>Add a new movie</p>
             </Button>
 
             <Modal show={show} onHide={handleClose} animation={false}>
@@ -52,25 +59,37 @@ function AddMovie({newMovie,  setNewMovie, newMovieData, setNewMovieData }) {
                             type="text"
                             placeholder="Enter movie title..."
                             className="Input"
+                            name="Title"
                             onChange={(e) => {
-                               setNewMovieData ({Title : e.target.value}) ;
+                                setNewMovieData({
+                                    ...newMovieData,
+                                    [e.target.name]: e.target.value,
+                                });
                             }}
-                            value={newMovieData.Title}
                         />
                         <FormControl
+                            as="textArea"
                             type="text"
                             placeholder="Enter movie description..."
                             className="Input"
+                            name="Description"
                             onChange={(e) => {
-                                newMovieData.Description = e.target.value;
+                                setNewMovieData({
+                                    ...newMovieData,
+                                    [e.target.name]: e.target.value,
+                                });
                             }}
                         />
                         <FormControl
                             type="text"
                             placeholder="Enter movie poster url..."
                             className="Input"
+                            name="PosterUrl"
                             onChange={(e) => {
-                                newMovieData.PosterUrl = e.target.value;
+                                setNewMovieData({
+                                    ...newMovieData,
+                                    [e.target.name]: e.target.value,
+                                });
                             }}
                         />
                         <FormControl
@@ -79,8 +98,12 @@ function AddMovie({newMovie,  setNewMovie, newMovieData, setNewMovieData }) {
                             min="1"
                             placeholder="Enter movie rating..."
                             className="Input"
+                            name="Rating"
                             onChange={(e) => {
-                                newMovieData.Rating = parseInt(e.target.value);
+                                setNewMovieData({
+                                    ...newMovieData,
+                                    [e.target.name]: parseInt(e.target.value),
+                                });
                             }}
                         />
                     </Form>
