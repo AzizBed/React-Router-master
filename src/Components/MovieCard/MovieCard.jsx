@@ -6,14 +6,15 @@ import "./MovieCard.css";
 
 function MovieCard({ newMovie }) {
     return (
-        <div >
+        <div>
             <Card
                 className="movieCard"
                 style={{
                     width: "18rem",
                     borderRadius: "10px",
                     border: "2px solid red",
-                    background:"rgb(194, 4, 4)"
+                    background: "rgb(194, 4, 4)",
+                    height: "45rem",
                 }}
             >
                 <Card.Img
@@ -26,41 +27,39 @@ function MovieCard({ newMovie }) {
                     <Card.Title>{newMovie.Title}</Card.Title>
                     <Card.Text>{newMovie.Description}</Card.Text>
                 </Card.Body>
-               
-                        {newMovie.Rating ===5 ? (
-                            <span style={{ color: "yellow" }}>
-                                <FaStar />
-                                <FaStar />
-                                <FaStar />
-                                <FaStar />
-                                <FaStar />
-                            </span>
-                        ) : newMovie.Rating === 4 ? (
-                            <span style={{ color: "yellow" }}>
-                                <FaStar />
-                                <FaStar />
-                                <FaStar />
-                                <FaStar />
-                            </span>
-                        ) : newMovie.Rating === 3 ? (
-                            <span style={{ color: "yellow" }}>
-                                <FaStar />
-                                <FaStar />
-                                <FaStar />
-                            </span>
-                        ) : newMovie.Rating === 2 ? (
-                            <span style={{ color: "yellow" }}>
-                                <FaStar />
-                                <FaStar />
-                            </span>
-                        ) : newMovie.Rating === 1 ? (
-                            <span style={{ color: "yellow" }}>
-                                <FaStar />
-                            </span>
-                        ) : (
-                            newMovie.Rating + " stars "
-                        )}{" "}
-                   
+                {newMovie.Rating === 5 ? (
+                    <span style={{ color: "yellow" }}>
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                    </span>
+                ) : newMovie.Rating === 4 ? (
+                    <span style={{ color: "yellow" }}>
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                    </span>
+                ) : newMovie.Rating === 3 ? (
+                    <span style={{ color: "yellow" }}>
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                    </span>
+                ) : newMovie.Rating === 2 ? (
+                    <span style={{ color: "yellow" }}>
+                        <FaStar />
+                        <FaStar />
+                    </span>
+                ) : newMovie.Rating === 1 ? (
+                    <span style={{ color: "yellow" }}>
+                        <FaStar />
+                    </span>
+                ) : (
+                    newMovie.Rating + " stars "
+                )}{" "}
                 <Card.Body>
                     <Button variant="primary">Download</Button>
                 </Card.Body>
