@@ -3,11 +3,15 @@ import { Card, Button } from "react-bootstrap";
 import { FaStar } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./MovieCard.css";
+import ReadMoreReact from "read-more-react";
+import { Link } from "react-router-dom";
 
 function MovieCard({ newMovie }) {
     return (
         <div>
+            
             <Card
+                
                 className="movieCard"
                 style={{
                     width: "18rem",
@@ -17,15 +21,26 @@ function MovieCard({ newMovie }) {
                     height: "45rem",
                 }}
             >
+                <Link to={`/movies/${newMovie.Title}`}>
                 <Card.Img
                     variant="top"
                     src={newMovie.PosterUrl}
                     alt="Movie poster"
                     width="150px"
-                />
+                /> 
+                </Link>
                 <Card.Body>
                     <Card.Title>{newMovie.Title}</Card.Title>
-                    <Card.Text>{newMovie.Description}</Card.Text>
+                    <Card.Text>
+                        <ReadMoreReact
+                            text={newMovie.Description}
+                            min={80}
+                            ideal={100}
+                            max={120}
+                            readMoreText="Read more"
+                           
+                        />
+                    </Card.Text>
                 </Card.Body>
                 {newMovie.Rating === 5 ? (
                     <span style={{ color: "yellow" }}>
@@ -61,10 +76,17 @@ function MovieCard({ newMovie }) {
                     newMovie.Rating + " stars "
                 )}{" "}
                 <Card.Body>
-                    <Button variant="primary">Download</Button>
+                    <div className="cardBtn">
+                        <Button variant="warning">
+                            <Link>Watch trailer</Link>{" "}
+                        </Button>
+                        <Button variant="dark">Download</Button>
+                    </div>
                 </Card.Body>
             </Card>
+           
         </div>
+        
     );
 }
 

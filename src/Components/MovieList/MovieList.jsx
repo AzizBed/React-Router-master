@@ -4,17 +4,20 @@ import "./MovieList.css";
 
 import AddMovie from "../AddMovie/AddMovie";
 
+
 function MovieList({
     titleSearch,
     rateSearch,
-    MovieData,
+    setNewMovie,
+    newMovie
     
 }) {
-    const [newMovie, setNewMovie] = useState(MovieData);
+   
     const[newMovieData,setNewMovieData] =useState({
         Title: "",
         Description: "",
         PosterUrl: "",
+        TrailerUrl:"",
         Rating: 0,
     })
     
@@ -39,6 +42,7 @@ function MovieList({
             />
         </div>
     );
+    
 }
 
 export default MovieList;

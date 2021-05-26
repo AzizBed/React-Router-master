@@ -10,6 +10,7 @@ function AddMovie({ newMovie, setNewMovie, newMovieData, setNewMovieData }) {
             newMovieData.Title !== "" &&
             newMovieData.Description !== "" &&
             newMovieData.PosterUrl !== "" &&
+            newMovieData.TrailerUrl!==""&&
             newMovieData.Rating !== 0
         ) {
             setNewMovie([...newMovie, newMovieData]);
@@ -18,12 +19,7 @@ function AddMovie({ newMovie, setNewMovie, newMovieData, setNewMovieData }) {
         } else {
             alert("All fields are mandatory");
         }
-        setNewMovieData({
-            Title: "",
-            Description: "",
-            PosterUrl: "",
-            Rating: 0,
-        });
+        setNewMovieData(newMovieData);
     };
     const handleClose = () => {
         setShow(false);
@@ -92,6 +88,17 @@ function AddMovie({ newMovie, setNewMovie, newMovieData, setNewMovieData }) {
                                 });
                             }}
                         />
+                        <FormControl
+                            type="text"
+                            placeholder="Enter movie trailer url..."
+                            className="Input"
+                            name="TrailerUrl"
+                            onChange={(e) => {
+                                setNewMovieData({
+                                    ...newMovieData,
+                                    [e.target.name]: e.target.value,
+                                });
+                            }}/>
                         <FormControl
                             type="number"
                             max="5"
