@@ -14,12 +14,18 @@ function AddMovie({ newMovie, setNewMovie, newMovieData, setNewMovieData }) {
             newMovieData.Rating !== 0
         ) {
             setNewMovie([...newMovie, newMovieData]);
-
+            setNewMovieData(({
+                Title: "",
+                Description: "",
+                PosterUrl: "",
+                TrailerUrl:"",
+                Rating: 0,
+            }));
             setShow(false);
         } else {
             alert("All fields are mandatory");
         }
-        setNewMovieData(newMovieData);
+        
     };
     const handleClose = () => {
         setShow(false);

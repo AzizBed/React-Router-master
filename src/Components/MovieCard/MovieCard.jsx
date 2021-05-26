@@ -78,7 +78,7 @@ function MovieCard({ newMovie }) {
                 <Card.Body>
                     <div className="cardBtn">
                         <Button variant="warning">
-                            <Link>Watch trailer</Link>{" "}
+                            <a href={newMovie.TrailerUrl}rel="noreferrer" target="_blank">Watch trailer</a>
                         </Button>
                         <Button variant="dark">Download</Button>
                     </div>
