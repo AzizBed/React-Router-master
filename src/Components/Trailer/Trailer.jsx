@@ -5,8 +5,8 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Button } from "react-bootstrap";
 
 function Trailer({ newMovie, match }) {
-    let title = useParams().Title;
-    let targetMovie = newMovie.find((el) => el.Title === title);
+    let Id = useParams().id;
+    let targetMovie = newMovie.find((el) => el.id === Id);
     let nextMovieIndex = newMovie.indexOf(targetMovie) + 1;
     let nextMovie = newMovie[nextMovieIndex];
     let previousMovieIndex = newMovie.indexOf(targetMovie) - 1;
@@ -15,14 +15,14 @@ function Trailer({ newMovie, match }) {
 
     const handleNextRoute = () => {
         if (nextMovieIndex < newMovie.length) {
-            history.push(`/movies/${nextMovie.Title}`);
+            history.push(`/movies/${nextMovie.id}`);
         } else {
             history.push(`/movies`);
         }
     };
     const handlePreviousRoute = () => {
         if (previousMovieIndex >= 0) {
-            history.push(`/movies/${previousMovie.Title}`);
+            history.push(`/movies/${previousMovie.id}`);
         } else {
             history.push(`/movies`);
         }

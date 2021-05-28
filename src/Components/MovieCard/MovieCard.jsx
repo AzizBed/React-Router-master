@@ -21,7 +21,7 @@ function MovieCard({ newMovie }) {
                     height: "45rem",
                 }}
             >
-                <Link to={`/movies/${newMovie.Title}`}>
+                <Link to={`/movies/${newMovie.id}`}>
                 <Card.Img
                     variant="top"
                     src={newMovie.PosterUrl}

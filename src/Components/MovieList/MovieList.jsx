@@ -1,4 +1,6 @@
 import React,{useState} from "react";
+import { v4 as uuidv4 } from "uuid";
+
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieList.css";
 
@@ -14,6 +16,7 @@ function MovieList({
 }) {
    
     const[newMovieData,setNewMovieData] =useState({
+        id:uuidv4(),
         Title: "",
         Description: "",
         PosterUrl: "",

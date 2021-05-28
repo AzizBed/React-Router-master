@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+
 import { FormControl, Modal, Button, Form } from "react-bootstrap";
 import "./AddMovie.css";
 
@@ -15,6 +17,7 @@ function AddMovie({ newMovie, setNewMovie, newMovieData, setNewMovieData }) {
         ) {
             setNewMovie([...newMovie, newMovieData]);
             setNewMovieData(({
+                id:uuidv4(),
                 Title: "",
                 Description: "",
                 PosterUrl: "",

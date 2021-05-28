@@ -203,7 +203,7 @@ function App() {
                         <Route exact path="/">
                             <Home />
                         </Route>
-                        <Route path="/movies/:Title">
+                        <Route path="/movies/:id">
                             <Trailer newMovie={newMovie} />
                         </Route>
                         <Route path="/movies">
