@@ -1,6 +1,6 @@
 import React from "react";
 import "./Trailer.css";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Button } from "react-bootstrap";
 
@@ -53,6 +53,9 @@ function Trailer({ newMovie, match }) {
                 </Button>
                 <h1 style={{ color: "red" }}>{useParams().Title} </h1>
                 <p> {targetMovie.Description} </p>
+                <Link to="/">
+                    <Button variant="danger">Home</Button>
+                </Link>
             </div>
         )
     );
