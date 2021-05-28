@@ -21,7 +21,7 @@ function NavBar({ setTitleSearch, setRateSearch, titleSearch,match }) {
                 <Nav className="mr-auto">
                 <Nav.Link>    <Link to="/">Home</Link></Nav.Link>
                 <Nav.Link>    <Link to="/movies">Movies</Link></Nav.Link>
-                <Nav.Link> <Link to="/category">Categories</Link></Nav.Link>
+                
                 </Nav>
 
                 <Form inline id="searchInput">
