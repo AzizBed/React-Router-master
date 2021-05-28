@@ -12,48 +12,49 @@ function Trailer({ newMovie, match }) {
     let previousMovieIndex = newMovie.indexOf(targetMovie) - 1;
     let previousMovie = newMovie[previousMovieIndex];
     let history = useHistory();
-   
+
     const handleNextRoute = () => {
-       
-        if(nextMovieIndex<newMovie.length){
-            history.push(`/movies/${nextMovie.Title}`)}
-            else{
-                history.push(`/movies`)
-            }
-    };
-    const handlePreviousRoute = () => {
-        if(previousMovieIndex>=0){
-        history.push(`/movies/${previousMovie.Title}`)}
-        else{
-            history.push(`/movies`)
+        if (nextMovieIndex < newMovie.length) {
+            history.push(`/movies/${nextMovie.Title}`);
+        } else {
+            history.push(`/movies`);
         }
     };
-   
+    const handlePreviousRoute = () => {
+        if (previousMovieIndex >= 0) {
+            history.push(`/movies/${previousMovie.Title}`);
+        } else {
+            history.push(`/movies`);
+        }
+    };
 
     return (
-        <div className="trailer">
-            <Button className="togglebtn" onClick={handlePreviousRoute}>
-                Previous movie
-            </Button>
-            <iframe
-                width="560"
-                height="315"
-                src={targetMovie.TrailerUrl}
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-            ></iframe>{" "}
-            <Button
-                className="togglebtn"
-                variant="warning"
-                onClick={handleNextRoute}
-            >
-                Next movie
-            </Button>
-            <h1 style={{ color: "red" }}>{useParams().Title} </h1>
-            <p> {targetMovie.Description} </p>
-        </div>
+        console.log(useParams()),
+        (
+            <div className="trailer">
+                <Button className="togglebtn" onClick={handlePreviousRoute}>
+                    Previous movie
+                </Button>
+                <iframe
+                    width="560"
+                    height="315"
+                    src={targetMovie.TrailerUrl}
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                ></iframe>{" "}
+                <Button
+                    className="togglebtn"
+                    variant="warning"
+                    onClick={handleNextRoute}
+                >
+                    Next movie
+                </Button>
+                <h1 style={{ color: "red" }}>{useParams().Title} </h1>
+                <p> {targetMovie.Description} </p>
+            </div>
+        )
     );
 }
 

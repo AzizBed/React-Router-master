@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
+import Trailer from "./Components/Trailer/Trailer";
 import MovieList from "./Components/MovieList/MovieList";
 import NavBar from "./Components/NavBar/NavBar";
 import Home from "./Components/Home/Home";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Trailer from "./Components/Trailer/Trailer";
 
 function App() {
     const MovieData = [
         {
+            id: uuidv4(),
             Title: "JOKER",
             Description:
                 "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.",
@@ -19,6 +21,7 @@ function App() {
             Rating: 4,
         },
         {
+            id: uuidv4(),
             Title: "Split",
             Description:
                 "Kevin, who is suffering from dissociative identity disorder and has 23 alter egos, kidnaps three teenagers. They must figure out his friendly personas before he unleashes his 24th personality.",
@@ -28,6 +31,7 @@ function App() {
             Rating: 5,
         },
         {
+            id: uuidv4(),
             Title: "Parasite",
             Description:
                 "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
@@ -37,6 +41,7 @@ function App() {
             Rating: 5,
         },
         {
+            id: uuidv4(),
             Title: "John Wick Parabellum",
             Description:
                 "John Wick is on the run after killing a member of the international assassins' guild, and with a $14 million price tag on his head, he is the target of hit men and women everywhere.",
@@ -47,6 +52,7 @@ function App() {
         },
 
         {
+            id: uuidv4(),
             Title: "The Lion King",
             Description:
                 "After the murder of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery.",
@@ -56,6 +62,7 @@ function App() {
             Rating: 3,
         },
         {
+            id: uuidv4(),
             Title: "The Dirt",
             Description:
                 "The film is an unflinching tale of success and excess as four misfits rise from the streets of Hollywood to the heights of international fame",
@@ -65,6 +72,7 @@ function App() {
             Rating: 3,
         },
         {
+            id: uuidv4(),
             Title: "Aladdin",
             Description:
                 "A kind-hearted street urchin and a power-hungry Grand Vizier vie for a magic lamp that has the power to make their deepest wishes come true.",
@@ -74,6 +82,7 @@ function App() {
             Rating: 2,
         },
         {
+            id: uuidv4(),
             Title: "Cold War",
             Description:
                 "In the 1950s, a music director falls in love with a singer and tries to persuade her to flee communist Poland for France.",
@@ -83,6 +92,7 @@ function App() {
             Rating: 2,
         },
         {
+            id: uuidv4(),
             Title: "Monster a Go-Go",
             Description:
                 "A space capsule crash-lands on Earth, and the astronaut aboard disappears. Is there a connection between the missing man and the monster roaming the area?",
@@ -92,6 +102,7 @@ function App() {
             Rating: 1,
         },
         {
+            id: uuidv4(),
             Title: "Birdemic: Shock and Terror ",
             Description:
                 "A horde of mutated birds descends upon the quiet town . With the death toll rising, Two citizens manage to fight back, but will they survive Birdemic?",
@@ -101,6 +112,7 @@ function App() {
             Rating: 1,
         },
         {
+            id: uuidv4(),
             Title: "Catch me if you can",
             Description:
                 "Barely 21 yet, Frank is a skilled forger who has passes as a doctor, lawyer and pilot.FBI agent Carl becomes obsessed with tracking down the con man, who only revels in the pursuit.",
@@ -111,6 +123,7 @@ function App() {
         },
 
         {
+            id: uuidv4(),
             Title: "300",
             Description:
                 "King Leonidas of Sparta and a force of 300 men fight the Persians at Thermopylae in 480 B.C.",
@@ -120,6 +133,7 @@ function App() {
             Rating: 5,
         },
         {
+            id: uuidv4(),
             Title: "Saw",
             Description:
                 "Two strangers awaken in a room with no recollection of how they got there, and soon discover they're pawns in a deadly game perpetrated by a notorious serial killer.",
@@ -130,6 +144,7 @@ function App() {
         },
 
         {
+            id: uuidv4(),
             Title: "Rocky",
             Description:
                 "A small-time boxer gets a supremely rare chance to fight a heavyweight champion in a bout in which he strives to go the distance for his self-respect.",
@@ -139,6 +154,7 @@ function App() {
             Rating: 4,
         },
         {
+            id: uuidv4(),
             Title: "The Shawshank Redemption",
             Description:
                 "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
@@ -149,6 +165,7 @@ function App() {
             Rating: 2,
         },
         {
+            id: uuidv4(),
             Title: "Inception",
             Description:
                 "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
@@ -158,6 +175,7 @@ function App() {
             Rating: 5,
         },
         {
+            id: uuidv4(),
             Title: "Jaws",
             Description:
                 "When a killer shark unleashes chaos on a beach community, it's up to a local sheriff, a marine biologist, and an old seafarer to hunt the beast down.",
@@ -171,32 +189,35 @@ function App() {
     const [titleSearch, setTitleSearch] = useState("");
     const [rateSearch, setRateSearch] = useState("0");
 
-    return (console.log(newMovie),
-        <Router>
-            <div className="App">
-                <NavBar
-                    setTitleSearch={setTitleSearch}
-                    setRateSearch={setRateSearch}
-                />
+    return (
+        
+        (
+            <Router>
+                <div className="App">
+                    <NavBar
+                        setTitleSearch={setTitleSearch}
+                        setRateSearch={setRateSearch}
+                    />
 
-                <Switch>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                    <Route path="/movies/:Title">
-                        <Trailer newMovie= {newMovie} />
-                    </Route>
-                    <Route path="/movies">
-                        <MovieList
-                            titleSearch={titleSearch}
-                            rateSearch={rateSearch}
-                            newMovie={newMovie}
-                            setNewMovie={setNewMovie}
-                        />
-                    </Route>
-                </Switch>
-            </div>
-        </Router>
+                    <Switch>
+                        <Route exact path="/">
+                            <Home />
+                        </Route>
+                        <Route path="/movies/:Title">
+                            <Trailer newMovie={newMovie} />
+                        </Route>
+                        <Route path="/movies">
+                            <MovieList
+                                titleSearch={titleSearch}
+                                rateSearch={rateSearch}
+                                newMovie={newMovie}
+                                setNewMovie={setNewMovie}
+                            />
+                        </Route>
+                    </Switch>
+                </div>
+            </Router>
+        )
     );
 }
 
